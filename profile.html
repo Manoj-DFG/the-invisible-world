@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Profile — LINKUP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .profile-page {
+            min-height: 100vh;
+            padding: 90px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-box {
+            width: min(600px, 100%);
+            padding: 45px;
+            border: 1px solid #1c2940;
+            border-radius: 25px;
+            background: #090e18;
+            box-shadow: 0 25px 80px rgba(0,0,0,.35);
+        }
+
+        .profile-box h1 {
+            margin-top: 15px;
+            font-size: 42px;
+        }
+
+        .profile-box > p {
+            color: #718097;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-top: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 9px;
+            color: #9ca9bd;
+            font-size: 13px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+
+            border: 1px solid #25334a;
+            border-radius: 12px;
+
+            background: #050912;
+            color: white;
+
+            outline: none;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #6575ff;
+        }
+
+        .create-btn {
+            width: 100%;
+            margin-top: 30px;
+            padding: 16px;
+
+            border: 1px solid #00d9ff;
+            border-radius: 30px;
+
+            background: linear-gradient(
+                90deg,
+                #087eae,
+                #5555d9
+            );
+
+            color: white;
+            font-weight: bold;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .success {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(0,217,255,.08);
+            border: 1px solid #1d6b7c;
+            color: #8deaff;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">LINKUP</div>
+
+    <a href="index.html"
+       style="color:#8995aa;text-decoration:none;">
+        ← HOME
+    </a>
+</nav>
+
+
+<main class="profile-page">
+
+    <div class="profile-box">
+
+        <div class="badge">
+            CREATE YOUR PROFILE
+        </div>
+
+        <h1>Tell us about you.</h1>
+
+        <p>
+            Your profile helps LINKUP find people
+            who could complement your skills and goals.
+        </p>
+
+
+        <form id="profileForm">
+
+            <div class="form-group">
+                <label>YOUR NAME</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required>
+            </div>
+
+
+            <div class="form-group">
+                <label>YOUR MAIN SKILL</label>
+
+                <input
+                    type="text"
+                    id="skill"
+                    placeholder="Example: Python"
+                    required>
+            </div>
+
+
+            <div class="form-group">
+                <label>WHAT ARE YOU LOOKING FOR?</label>
+
+                <select id="lookingFor" required>
+
+                    <option value="">
+                        Select one
+                    </option>
+
+                    <option>
+                        Project Partner
+                    </option>
+
+                    <option>
+                        Study Partner
+                    </option>
+
+                    <option>
+                        Idea Collaborator
+                    </option>
+
+                    <option>
+                        Skill Exchange
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>ABOUT YOURSELF</label>
+
+                <textarea
+                    id="about"
+                    placeholder="Tell people what you're interested in..."
+                    required></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="create-btn">
+
+                CREATE PROFILE →
+
+            </button>
+
+        </form>
+
+
+        <div
+            id="success"
+            class="success">
+
+            ✓ Profile saved on this device.
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+const form =
+    document.getElementById("profileForm");
+
+const success =
+    document.getElementById("success");
+
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const profile = {
+
+        name:
+            document.getElementById("name").value,
+
+        skill:
+            document.getElementById("skill").value,
+
+        lookingFor:
+            document.getElementById("lookingFor").value,
+
+        about:
+            document.getElementById("about").value
+
+    };
+
+
+    localStorage.setItem(
+        "linkupProfile",
+        JSON.stringify(profile)
+    );
+
+
+    success.style.display = "block";
+
+
+    form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
