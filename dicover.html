@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Discover — LINKUP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .discover-page {
+            min-height: 100vh;
+            padding: 100px 7%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .discover-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .discover-header h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            margin-top: 15px;
+        }
+
+        .discover-header p {
+            color: #7f8da5;
+            margin-top: 15px;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .person-card {
+            padding: 30px;
+            border: 1px solid #1b2639;
+            border-radius: 22px;
+            background: #090e18;
+            transition: 0.3s;
+        }
+
+        .person-card:hover {
+            transform: translateY(-7px);
+            border-color: #536cff;
+        }
+
+        .avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00d9ff, #735cff);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .person-card h2 {
+            margin-top: 22px;
+            font-size: 21px;
+        }
+
+        .role {
+            color: #718097;
+            margin-top: 7px;
+            font-size: 13px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            padding: 7px 11px;
+            border-radius: 20px;
+            background: #111a2a;
+            color: #8f9db4;
+            font-size: 11px;
+        }
+
+        .looking {
+            margin-top: 20px;
+            color: #aab5c7;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .connect-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            border: 1px solid #344cff;
+            border-radius: 25px;
+            background: transparent;
+            color: white;
+        }
+
+        .connect-btn:hover {
+            background: #344cff;
+        }
+
+        @media (max-width: 800px) {
+            .people-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">LINKUP</div>
+
+    <a href="index.html"
+       style="color:#8995aa;text-decoration:none;">
+        ← HOME
+    </a>
+</nav>
+
+
+<main class="discover-page">
+
+    <div class="discover-header">
+
+        <div class="badge">
+            DISCOVER PEOPLE
+        </div>
+
+        <h1>
+            PEOPLE WHO<br>
+            <span>COULD FIT YOUR IDEA.</span>
+        </h1>
+
+        <p>
+            Explore people based on skills, interests and goals.
+        </p>
+
+    </div>
+
+
+    <div class="people-grid">
+
+
+        <div class="person-card">
+
+            <div class="avatar">AR</div>
+
+            <h2>Arjun</h2>
+
+            <div class="role">
+                AI / ML Developer
+            </div>
+
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">AI</span>
+                <span class="skill">ML</span>
+            </div>
+
+            <p class="looking">
+                Looking for a frontend developer
+                to build an AI project.
+            </p>
+
+            <button class="connect-btn">
+                CONNECT
+            </button>
+
+        </div>
+
+
+        <div class="person-card">
+
+            <div class="avatar">SK</div>
+
+            <h2>Shreya</h2>
+
+            <div class="role">
+                UI / Frontend Developer
+            </div>
+
+            <div class="skills">
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+            </div>
+
+            <p class="looking">
+                Looking for someone with an
+                AI or ML background.
+            </p>
+
+            <button class="connect-btn">
+                CONNECT
+            </button>
+
+        </div>
+
+
+        <div class="person-card">
+
+            <div class="avatar">VK</div>
+
+            <h2>Vikram</h2>
+
+            <div class="role">
+                Full Stack Developer
+            </div>
+
+            <div class="skills">
+                <span class="skill">JavaScript</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">MongoDB</span>
+            </div>
+
+            <p class="looking">
+                Looking for a project partner
+                interested in technology.
+            </p>
+
+            <button class="connect-btn">
+                CONNECT
+            </button>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+<script>
+    const buttons =
+        document.querySelectorAll(".connect-btn");
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            button.textContent = "REQUEST SENT ✓";
+
+            button.style.borderColor = "#00d9ff";
+
+            button.disabled = true;
+
+        });
+
+    });
+</script>
+
+</body>
+</html>
